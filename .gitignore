@@ -35,3 +35,5 @@ my-app/.env
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+my-app/src/app/utils/axiosInstance.js

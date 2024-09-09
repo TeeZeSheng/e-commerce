@@ -1,5 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 const Header = () => {
   return (
@@ -7,15 +9,12 @@ const Header = () => {
         <div>
             <Link href={'/'}>Spurs</Link>
         </div>
-        <div className=''>
-            New & featured
-            kids
-            Men
-            Women
-        </div>
-        <div>
-            <Link href={'/cart'}>Cart</Link>
-            fav
+        <div className='space-x-4'>
+            
+              <Link href={'/cart'} className='border p-1.5 rounded-md border-transparent hover:border-white'><ShoppingCartIcon /></Link>
+              <Link href={'/wishlist'} className='border p-1.5 rounded-md border-transparent hover:border-white'><FavoriteBorderIcon /></Link>
+            
+            
         </div>
         
     </header>
