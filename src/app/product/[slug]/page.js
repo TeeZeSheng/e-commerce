@@ -15,7 +15,7 @@ const Product = ({params}) => {
         axiosInstance.get(`product/${params.slug}`).then((res) => {
             setProduct(res.data.data.product)
         }).catch((err) => {
-            console.log(err)
+            console.log(err);
         })
     }, [])
 
