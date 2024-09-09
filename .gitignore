@@ -27,13 +27,14 @@ yarn-error.log*
 
 # local env files
 
-my-app/.env
+
 
 # vercel
 .vercel
+.env
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
 
-my-app/src/app/utils/axiosInstance.js
+src/app/utils/axiosInstance.js
