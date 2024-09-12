@@ -44,12 +44,21 @@ export default function Home() {
       <div className="my-14">
           <h1 className="my-4 text-2xl">Featured</h1>
           <div className="flex justify-evenly overflow-hidden space-x-4">
-          {latest.map((l, i) => (
+          
             <div>
-              <Image src={spurs} width={500} className="  "/>
-              <h1 className="my-4">{l}</h1>
+              <Image src={"https://cdn11.bigcommerce.com/s-5e8c3uvulz/images/stencil/400w/products/15482/32118/homekit-son-24-25__44963.1718792947.png"} width={500} height={500} className="  "/>
+              <h1 className="my-4">2024/2025 Home Shirt</h1>
             </div>
-          ))}
+            <div>
+                <Image src={"https://cdn11.bigcommerce.com/s-5e8c3uvulz/images/stencil/400w/products/16278/30229/mens-knitwear-spurs-mens-navy-crew-neck-cotton-jumper__30526.1712125285.jpg"} width={500} height={500} className=""/>
+                <p className="my-4">Sweatshirt</p>
+              </div>
+            
+            <div>
+              <Image src={"https://cdn11.bigcommerce.com/s-5e8c3uvulz/images/stencil/400w/products/6490/29860/nike-club-range-spurs-nike-mens-grey-club-zip-hoodie__87632.1710741238.jpg"} width={500} height={500} className="  "/>
+              <h1 className="my-4">Hoodie</h1>
+            </div>
+          
           
           </div>
       </div>
@@ -73,12 +82,18 @@ export default function Home() {
         <div className="pb-12">
           <h1 className="mb-4 text-2xl">Comfort Picks</h1>
           <div className="flex justify-evenly overflow-hidden space-x-4">
-            {comfort.map((c, i) => (
-              <div key={i}>
-                <Image src={spurs} width={500} className=""/>
-                <p className="my-4">{c}</p>
+              <div>
+                <Image src={"https://cdn11.bigcommerce.com/s-5e8c3uvulz/images/stencil/400w/products/19766/32402/141348_NEW_ERA_REPREVE_KOREA_FLAG_CAP_1__46911.1719475580.jpg"} width={500} height={500} className="  "/>
+                <h1 className="my-4">Cap</h1>
               </div>
-            ))}
+              <div>
+                <Image src={"https://cdn11.bigcommerce.com/s-5e8c3uvulz/images/stencil/400w/products/5865/30348/nike-club-range-spurs-nike-adult-navy-club-full-zip-shorts__37067.1713423358.jpg"} width={500} height={500} className=""/>
+                <p className="my-4">Shorts</p>
+              </div>
+              <div>
+                <Image src={"https://cdn11.bigcommerce.com/s-5e8c3uvulz/images/stencil/400w/products/19797/30183/yeti-spurs-x-yeti-navy-35oz-straw-mug__93943.1711519398.jpg"} width={500} height={500} className=""/>
+                <p className="my-4">Mugs</p>
+              </div>
           </div>
       </div>
     </section>
