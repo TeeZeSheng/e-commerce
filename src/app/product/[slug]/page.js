@@ -15,13 +15,21 @@ const Product = ({params}) => {
     const [size, setSize] = useState('');
     const [color, setColor] = useState('');
     const [fav, setFav] = useState('Add to wish list')
+    const [wishList, setWishList] = useState({})
     const router = useRouter();
 
     useEffect(() => {
-        axiosInstance.get(`product/getProduct/${params.slug}`).then((res) => {
+        axiosInstance.post(`product/getProduct/${params.slug}`, {user_id: '66df144bfb6717ad92a34ef2'}).then((res) => {
             setProduct(res.data.data.product)
             res.data.data.product.color ? setColor(res.data.data.product.color[0]) : setColor('')
             res.data.data.product.size ? setSize(res.data.data.product.size[0]) : setSize('')
+            setWishList(res.data.inList)
+            console.log(color)
+            console.log(res.data.inList[color])
+            if ((res.data.inList)[res.data.data.product.color[0]] === 'true') {
+                setFav('Added to wish list')
+            }
+            console.log(res.data)
             
         }).catch((err) => {
             console.log(err);
@@ -42,6 +50,23 @@ const Product = ({params}) => {
             console.log(err)
         })
         
+    }
+
+    const handleWishList = () => {
+        let wishListItem = {
+            name: product.name,
+            product_type: product.product_type,
+            price: product.price,
+            color: color,
+            display_image: (product.img_url)[color],
+            user_id: '66df144bfb6717ad92a34ef2',
+        }
+
+        axiosInstance.post('wishlist/addToWishList', wishListItem).then((res) => {
+            setFav('Added to wish list')
+        }).catch((err) => {
+            console.log(err)
+        })
     }
 
   return (
@@ -68,7 +93,7 @@ const Product = ({params}) => {
         
         <div className='grid grid-cols-2 gap-4'>
         <div className=''>
-            <Image src={color && (product.img_url)[color]} alt={product.name}
+            <Image src={color? color && (product.img_url)[color] : product.display_image} alt={product.name}
             width={500} height={550} quality={100}/>
         </div>
         <div className='mx-6'>
@@ -79,7 +104,10 @@ const Product = ({params}) => {
                 <div className='flex my-4 space-x-4'>
                     {product.color && (product.color).map((c, i) => (
                         <div key={i} className={`   ${c === color ? 'opacity-50 pointer-events-none' : 'hover:opacity-50'}`}>
-                            <div className='w-14 border h-14 rounded-full border-2  hover:cursor-pointer' style={{backgroundColor: c}} onClick={() => setColor(c)}></div>
+                            <div className='w-14 border h-14 rounded-full border-2  hover:cursor-pointer' style={{backgroundColor: c}} onClick={() => {setColor(c)
+                                if(wishList[c]){setFav('Added to wish list')}else{setFav('Add to wish list')}
+                                
+                            }}></div>
                         </div>
                         
                     ))}
@@ -88,7 +116,7 @@ const Product = ({params}) => {
                 <h1 className='my-4 text-xl'>Select Size</h1>
                 <div className='flex'>
                 {product.size && product.size.map((s, i) => (
-                    <div className={size === s ? "opacity-50 pointer-events-none" : "hover:opacity-50w"} key={i}>
+                    <div className={size === s ? "opacity-50 pointer-events-none" : "hover:opacity-50"} key={i}>
                         <button className='mr-2 border py-1 px-2 border-2 ' onClick={() => setSize(s)}>{s}</button>
 
                     </div>
@@ -99,7 +127,7 @@ const Product = ({params}) => {
                     <h1 className='text-justify text-sm'>{product.description}</h1>
                 </div>
                 <div >
-                <button className='mt-8 rounded-md border-white border w-1/2 flex justify-evenly hover:bg-white hover:text-black' onClick={() => setFav('Added to wish list')}>{fav}</button>
+                <button className='mt-8 rounded-md border-white border w-1/2 flex justify-evenly hover:bg-white hover:text-black' onClick={handleWishList}>{fav}</button>
                 </div>
                 <div className=''> 
                 <button className='mt-4 rounded-md border-white border w-1/2 flex justify-evenly hover:bg-white hover:text-black' onClick={handleCart}>Add to cart</button>
