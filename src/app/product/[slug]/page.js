@@ -19,7 +19,11 @@ const Product = ({params}) => {
     const router = useRouter();
 
     useEffect(() => {
-        axiosInstance.post(`product/getProduct/${params.slug}`, {user_id: '66df144bfb6717ad92a34ef2'}).then((res) => {
+        console.log(params.slug)
+        axiosInstance.post(`product/getOneProduct/${params.slug}`, {user_id: "66df144bfb6717ad92a34ef2"},{
+            withCredentials: true,
+            
+        }).then((res) => {
             setProduct(res.data.data.product)
             res.data.data.product.color ? setColor(res.data.data.product.color[0]) : setColor('')
             res.data.data.product.size ? setSize(res.data.data.product.size[0]) : setSize('')
@@ -39,7 +43,8 @@ const Product = ({params}) => {
     const handleCart = () => {
         let cartItem = {
             ...product,
-            size: size
+            selected_size: size,
+            selected_color: color,
         }
 
         axiosInstance.post('product/addToCart', cartItem).then((res) => {
@@ -74,7 +79,7 @@ const Product = ({params}) => {
         <div>
         {showCart ? <div className='w-1/4 border absolute right-0 top-12 bg-white flex bg-gray-300 p-4 justify-around z-50'>
                 <div>
-                    <Image src={product.display_image} 
+                    <Image src={color? color && (product.img_url)[color] : product.display_image} 
                         width={100} height={100} quality={100}/>
                 </div>
                 <div>

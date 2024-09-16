@@ -26,7 +26,12 @@ const Cart = () => {
     <div className='min-h-screen flex justify-evenly px-8 space-x-8 pb-12'>
         <div className='flex flex-col w-full max-w-3xl'> {/* Set width to full or a specific width */}
             <h1 className='mt-8 mb-4 text-2xl' id='cart'>Cart</h1>
-            {cartItems.map((cartItem, i) => (
+            {cartItems.length === 0 ? 
+            <div className='bg-slate-900 p-4 flex items-center flex-col space-y-4'>
+                <h1>No items in cart</h1>
+                <button className='border rounded-md p-2 text-sm hover:bg-white hover:text-black' onClick={() => router.push('/search')}>Shop now</button>
+            </div> : <>
+                {cartItems.map((cartItem, i) => (
                  <div key={i}>
                     <div className='flex w-full mt-4' id='details'>  {/* Ensure details take up full width */}
                         <div className='flex justify-between w-full'>  {/* This div now takes up full width */}
@@ -50,7 +55,9 @@ const Cart = () => {
                     </div>
                     <div className='bg-zinc-500 w-full h-0.5 my-4'/>
                  </div>
-            ))}           
+            ))}        
+                </>}
+               
         </div>
         <div className='w-1/4 flex flex-col sticky top-10 h-full'>
             <div className='mt-8'>
