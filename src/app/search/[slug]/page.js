@@ -53,7 +53,7 @@ const Product = ({params}) => {
         
     }
   return (
-    <div className='pb-14'> 
+    <div className='pb-14 px-2'> 
         <div className='flex flex-col items-center mb-4 mt-2 sticky top-14 z-40 bg-black'>
             <h1>Buy 5 Free 1</h1>
             <h1>From 6/9 to 10/10</h1>
@@ -76,7 +76,7 @@ const Product = ({params}) => {
         {/* <div className='px-10 mb-10'>
             <h1 className='text-3xl'>{title}</h1>
         </div> */}
-        <div className='flex justify-between px-10'>
+        <div className='flex justify-between sm:px-10'>
             <div className='hidden sm:h-full sm:sticky sm:top-24 sm:flex sm:items-center sm:justify-center sm:w-1/6 mr-12' >
             <div className=' h-full space-y-4 mt-4 w-full'  id='category'>
                 <div className='overflow-y-auto flex flex-col items-start space-y-2'>
@@ -95,7 +95,7 @@ const Product = ({params}) => {
             </div>
             </div>
             {loading ? 
-            <div className='lg:flex-row lg:flex-wrap z-10 lg:px-12 w-full md:items-center md:flex md:flex-col'>
+            <div className='lg:flex-row lg:flex-wrap z-10 lg:px-12 w-full items-center md:flex md:flex-col'>
                 { [1, 2, 3, 4, 5, 6].map((r, i) => (
                 <Stack spacing={2} className='mx-8 animate-pulse my-4' key={i}>
                 <Skeleton variant="rectangular" width={300} height={350} sx={{ bgcolor: 'grey.800'}} />
