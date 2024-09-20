@@ -97,7 +97,7 @@ const Product = ({params}) => {
             {loading ? 
             <div className='lg:flex-row lg:flex-wrap z-10 lg:px-12 w-full md:items-center md:flex md:flex-col'>
                 { [1, 2, 3, 4, 5, 6].map((r, i) => (
-                <Stack spacing={2} className='mx-8 animate-pulse my-4'>
+                <Stack spacing={2} className='mx-8 animate-pulse my-4' key={i}>
                 <Skeleton variant="rectangular" width={300} height={350} sx={{ bgcolor: 'grey.800'}} />
                 <Skeleton variant="rounded" width={210} height={30} sx={{ bgcolor: 'grey.800'}}/>
                 </Stack>
