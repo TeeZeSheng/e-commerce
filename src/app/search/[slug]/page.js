@@ -6,17 +6,25 @@ import Image from 'next/image'
 import Link from 'next/link'
 import axiosInstance from '../../utils/axiosInstance'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
 
 const Product = ({params}) => {
     const [products, setProducts] = useState([])
     const [filterProducts, setFilterProducts] = useState([])
     const [title, setTitle] = useState('All Products')
     const [catButton, setCatButton] = useState(false)
+    const [loading, setLoading] = useState(true)
+
+    const [a, setA] = useState([1, 2, 4])
+
     useEffect(() => {
         axiosInstance.get('product').then((res) => {
             console.log(res)
             setProducts(res.data.data.products)
             setFilterProducts(res.data.data.products)
+            setLoading(false)
             if (params.slug !== 'all') {
                 handleCategory(params.slug)
             }
@@ -31,6 +39,7 @@ const Product = ({params}) => {
                 console.log(res)
                 setFilterProducts(res.data.data.products)
                 setCatButton(false)
+                setLoading(false)
                 setTitle(cat)
             }).catch((err) => {
                 console.log(err)
@@ -39,6 +48,7 @@ const Product = ({params}) => {
             setTitle(cat)
             setCatButton(false)
             setFilterProducts(products)
+            setLoading(false)
         }
         
     }
@@ -84,9 +94,17 @@ const Product = ({params}) => {
                 
             </div>
             </div>
-
-            
+            {loading ? 
             <div className='lg:flex-row lg:flex-wrap z-10 lg:px-12 w-full md:items-center md:flex md:flex-col'>
+                { [1, 2, 3, 4, 5, 6].map((r, i) => (
+                <Stack spacing={2} className='mx-8 animate-pulse my-4'>
+                <Skeleton variant="rectangular" width={300} height={350} sx={{ bgcolor: 'grey.800'}} />
+                <Skeleton variant="rounded" width={210} height={30} sx={{ bgcolor: 'grey.800'}}/>
+                </Stack>
+            ))}
+            </div>
+           :
+               <div className='lg:flex-row lg:flex-wrap z-10 lg:px-12 w-full md:items-center md:flex md:flex-col'>
                 
                {filterProducts && filterProducts.map((product, i) =>(
                 <div className='mx-2 p-4' key={i}>
@@ -103,8 +121,7 @@ const Product = ({params}) => {
                 </div>
                 ))}
                 
-            </div>
-        
+            </div>}
         </div>
     </div>
     
