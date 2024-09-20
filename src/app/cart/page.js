@@ -75,7 +75,7 @@ const Cart = () => {
             {cartItems.length === 0 ? 
             <div className='bg-slate-900 p-4 flex items-center flex-col space-y-4'>
                 <h1>No items in cart</h1>
-                <button className='border rounded-md p-2 text-sm hover:bg-white hover:text-black' onClick={() => router.push('/search')}>Shop now</button>
+                <button className='border rounded-md p-2 text-sm hover:bg-white hover:text-black' onClick={() => router.push('/search/all')}>Shop now</button>
             </div> : <div className=''>
                 {cartItems.map((cartItem, i) => (
                  <div key={i}>
