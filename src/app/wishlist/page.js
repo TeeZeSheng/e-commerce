@@ -57,10 +57,6 @@ const WishList = () => {
             </div>
         {/* </div> */}
     </div>
-    <div className={`${wishList.length <= 1 ? "fixed bottom-0" : ""} w-full`}>
-    {wishList.length <= 1 ? <Footer/> : <></>}
-        
-    </div>
     </div>
     
     
