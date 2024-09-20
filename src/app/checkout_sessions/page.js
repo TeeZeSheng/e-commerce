@@ -10,13 +10,15 @@ import axiosInstance from '../utils/axiosInstance';
 const axios = require('axios');
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+console.log(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
+//https://ecommerce-backend-rqk3.onrender.com
 
 export default function App() {
   const [priceId, setPriceId] = useState([{price: 'price_1PxUG6KRO5k2Lh6gqXY3SSOZ', quantity: 1}])
 
   const fetchClientSecret = useCallback(async () => {
     // Create a Checkout Session
-    return fetch("https://ecommerce-backend-rqk3.onrender.com/api/v1/booking/checkout-session/66df144bfb6717ad92a34ef2", {
+    return fetch("http://localhost:8080/api/v1/booking/checkout-session/66df144bfb6717ad92a34ef2", {
       method: "GET",  
     })
       .then((res) => res.json())

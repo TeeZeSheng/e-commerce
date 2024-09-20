@@ -18,20 +18,20 @@ export default function Home() {
  
   
   return (
-    <section className="px-6">
+    <div className="px-6">
       <div className="flex justify-center items-center my-12">
         
-        <div className="flex w-full bg-gray-900">
+        <div className="flex lg:flex-row flex-col bg-gray-900">
           
           
-          <Image src={homeKit} width={1000} quality={100}/>
-          <div className="flex flex-col mx-10 w-full justify-center w-full">
-            <div className="flex flex-col items-center justify-center w-full">
-              <h1>Spurs Jersey</h1>
-              <h1 className="text-3xl my-6">COME ON YOU SPURS</h1>
-              <p>The all new 2024/2025 season home jersey is here.</p>
+          <Image src={homeKit} width={850} quality={100} className="basis-1/2"/>
+          <div className="flex flex-col justify-center w-full basis-1/2">
+            <div className="flex flex-col items-center justify-center w-full py-4">
+              <h1 className="basis-1/4">Spurs Jersey</h1>
+              <h1 className="text-3xl my-6 px-6 basis-1/4">COME ON YOU SPURS</h1>
+              <p className="px-6 basis-1/4">The all new 2024/2025 season home jersey is here.</p>
               <button type="button" onClick={() => router.push('/search/all')}
-                className="mt-4 p-2 rounded-lg border-white border flex justify-evenly hover:bg-white hover:text-black">
+                className="mt-8 p-2 rounded-lg border-white border flex justify-evenly hover:bg-white hover:text-black basis-1/4">
                   Shop now
               </button>
             </div>
@@ -48,7 +48,7 @@ export default function Home() {
       </div> */}
       <div className="my-14">
           <h1 className="my-4 text-2xl">Featured</h1>
-          <div className="flex justify-evenly overflow-hidden space-x-4">
+          <div className="flex flex-col lg:flex-row lg:justify-evenly lg:overflow-hidden lg:space-x-4 items-center">
           
             <div>
               <Link href={'/search/Shirt'} className="hover:opacity-75">
@@ -95,7 +95,7 @@ export default function Home() {
       </div> */}
         <div className="pb-12">
           <h1 className="mb-4 text-2xl">Comfort Picks</h1>
-          <div className="flex justify-evenly overflow-hidden space-x-4">
+          <div className="flex flex-col lg:flex-row lg:justify-evenly lg:overflow-hidden lg:space-x-4 items-center">
               <div>
               <Link href={'/search/Beanie'} className="hover:opacity-75">
                 <Image src={"https://cdn11.bigcommerce.com/s-5e8c3uvulz/images/stencil/400w/products/19766/32402/141348_NEW_ERA_REPREVE_KOREA_FLAG_CAP_1__46911.1719475580.jpg"} width={500} height={500} className="  "/>
@@ -119,7 +119,7 @@ export default function Home() {
               </div>
           </div>
       </div>
-    </section>
+    </div>
 
   );
 }

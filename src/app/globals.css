@@ -24,6 +24,10 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  .headerIcon {
+    @apply border p-2 rounded-md border-transparent hover:bg-gray-700 hover:brightness-125;
+  }
 }
 
 #category::-webkit-scrollbar {
@@ -41,5 +45,7 @@ body {
   background: rgb(151, 146, 146);
   border-radius: 10px;
 }
+
+
 
 

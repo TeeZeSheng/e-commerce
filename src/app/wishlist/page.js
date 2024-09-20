@@ -37,15 +37,16 @@ const WishList = () => {
                  : 
                 <div className='w-full'>
                     {wishList.map((w, i) => (
-                        <div className='flex justify-between p-4 my-4 bg-slate-900' key={i} >
-                            <div className='flex space-x-8'>
+                        <div className='flex sm:flex-row sm:justify-between sm:p-4 sm:my-4 bg-slate-900 flex-col sm:space-x-8 items-center space-y-4 my-6 py-4' key={i} >
+                            <div className=''>
                                 <Image src={w.display_image} width={200} height={200} alt={w.name}/>
-                                <div>
+                                
+                            </div>
+                            <div>
                                     <h1 className='text-2xl mb-4'>{w.name + ' (' + w.color + ')'}</h1>
                                     <h1>{w.product_type}</h1>
                                     <h1>RM {w.price}</h1>
                                     <button className='border rounded-lg p-2 my-4 hover:bg-white hover:text-black' onClick={() => router.push('/product/66defebc095a116b5fe5ab79')}>View Product</button>
-                                </div>
                             </div>
                             <DeleteIcon className='hover:opacity-50 cursor-pointer'/>
                         </div>
