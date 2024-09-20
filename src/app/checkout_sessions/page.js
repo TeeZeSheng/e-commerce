@@ -18,7 +18,7 @@ export default function App() {
 
   const fetchClientSecret = useCallback(async () => {
     // Create a Checkout Session
-    return fetch("http://localhost:8080/api/v1/booking/checkout-session/66df144bfb6717ad92a34ef2", {
+    return fetch("https://ecommerce-backend-rqk3.onrender.com/api/v1/booking/checkout-session/66df144bfb6717ad92a34ef2", {
       method: "GET",  
     })
       .then((res) => res.json())
