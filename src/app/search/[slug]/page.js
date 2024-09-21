@@ -53,7 +53,7 @@ const Product = ({params}) => {
         
     }
   return (
-    <div className='pb-14 px-2'> 
+    <div className='pb-14 lg:px-0 px-2'> 
         <div className='flex flex-col items-center mb-4 mt-2 sticky top-14 z-40 bg-black'>
             <h1>Buy 5 Free 1</h1>
             <h1>From 6/9 to 10/10</h1>
@@ -94,7 +94,7 @@ const Product = ({params}) => {
                 
             </div>
             </div>
-            {loading ? 
+            {!loading ? 
             <div className='lg:flex-row lg:flex-wrap z-10 lg:px-12 w-full items-center md:flex md:flex-col'>
                 { [1, 2, 3, 4, 5, 6].map((r, i) => (
                 <Stack spacing={2} className='mx-8 animate-pulse my-4' key={i}>
