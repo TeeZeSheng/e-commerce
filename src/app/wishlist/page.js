@@ -32,7 +32,7 @@ const WishList = () => {
   return (
     <div div className='w-full'>
         {/* <div className='min-h-screen flex p-6 justify-center items-center w-full'> */}
-        <div className='min-h-screen flex flex-col p-6 items-center w-full'>
+        <div className='min-h-screen flex flex-col sm:p-6 py-4 items-center sm:w-full'>
             <div className='w-3/4 px-4'>
                 <h1 className='text-3xl'>Wish List</h1>
             </div>
@@ -52,7 +52,7 @@ const WishList = () => {
                                 <Image src={w.display_image} width={200} height={200} alt={w.name}/>
                             </div>
                             <div>
-                                    <h1 className='text-2xl mb-4'>{w.name + ' (' + w.color + ')'}</h1>
+                                    <h1 className='sm:text-2xl text-xl mb-4'>{w.name + ' (' + w.color + ')'}</h1>
                                     <h1>{w.product_type}</h1>
                                     <h1>RM {w.price}</h1>
                                     <button className='border rounded-lg p-2 my-4 hover:bg-white hover:text-black' onClick={() => router.push('/product/66defebc095a116b5fe5ab79')}>View Product</button>

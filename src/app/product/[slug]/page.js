@@ -88,19 +88,19 @@ const Product = ({params}) => {
 
   return (
     <div>
-        <div>
-        {showCart ? <div className='w-1/4 border absolute right-0 top-14 bg-white flex bg-gray-300 p-4 justify-around z-50'>
+        <div className=''>
+        {showCart ? <div className='lg:w-1/4 w-full border fixed bottom-0 lg:h-fit lg:absolute lg:right-0 lg:top-14 bg-white flex bg-gray-300 p-4 space-x-6 z-50'>
                 <div>
                     <Image src={color? color && (product.img_url)[color] : product.display_image} 
-                        width={100} height={100} quality={100}/>
+                        width={100} height={100} quality={100} />
                 </div>
                 <div>
                     <h1 className='text-black'>{product.name}</h1>
                     <h1 className='text-black'>RM {product.price}</h1>
                     <h1 className='text-black'>Successfully added to cart</h1>
                     <h1 className='text-black'>Size: {size}</h1>
-                    <button className='mr-4 border rounded-md py-1 px-4 hover:bg-black' onClick={() => setShowCart((prev) => !prev)}>close</button>
-                    <button className='mr-4 border rounded-md py-1 px-4' onClick={() => router.push('/checkout_sessions')}>Checkout</button>
+                    <button className='mr-4 border rounded-md py-1 px-4 my-2 bg-black' onClick={() => setShowCart((prev) => !prev)}>close</button>
+                    <button className='mr-4 border rounded-md py-1 px-4 my-2 bg-black' onClick={() => router.push('/cart')}>Checkout</button>
                 </div>
                 
             </div> : <></>}
@@ -170,6 +170,7 @@ const Product = ({params}) => {
         </div> */}
         
     </div>
+
     </div>
     </div>
     

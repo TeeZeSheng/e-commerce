@@ -54,12 +54,12 @@ const Cart = () => {
                 </div> */}
                 <div>
                     <h1 className='md:text-2xl text-md'>Summary</h1>
-                    <p>RM {(totalPrice + 5.99).toFixed(2)}</p>  
+                    <p>RM {cartItems.length !== 0 && deliver ? (totalPrice + 5.99).toFixed(2) : totalPrice}</p>  
                     <div>
                         <button className='mt-4 py-2 rounded-md border-white border sm:w-full w-40 md:px-12 px-4 flex justify-evenly hover:bg-white hover:text-black' onClick={() => router.push('/checkout_sessions')}>Checkout</button>
                     </div>
                 </div>
-                <div className=''>
+                <div className='disabled'>
                     <h1 className='md:text-2xl text-md'>Delivery Options</h1>
                     <div>
                         <button className='mt-4 py-2 rounded-md border-white border sm:w-full w-40 md:px-12 px-4 flex justify-evenly hover:bg-white hover:text-black'
@@ -130,7 +130,7 @@ const Cart = () => {
                     <h1>Delivery Fees</h1>
                     <div className='flex justify-between w-1/4'>
                         <p>RM</p>
-                        <p>{(deliver ? 5.99 : 0).toFixed(2)}</p>
+                        <p>{(cartItems.length !== 0 && deliver ? 5.99 : 0).toFixed(2)}</p>
                     </div>
                     
                 </div>
@@ -139,7 +139,7 @@ const Cart = () => {
                     <h1>Total</h1>
                     <div className='flex justify-between w-1/4'>
                         <p>RM</p>
-                        <p>{(totalPrice + 5.99).toFixed(2)}</p>
+                        <p>{cartItems.length !== 0 && deliver ?(totalPrice + 5.99).toFixed(2) : totalPrice.toFixed(2)}</p>
                     </div>
                 </div>
                 <div className='bg-zinc-500 w-full h-0.5 my-4'/>
@@ -151,12 +151,20 @@ const Cart = () => {
             <div className=''>
                 <h1 className='text-2xl'>Delivery Options</h1>
                 <div>
-                    <button className='mt-4 py-2 rounded-md border-white border w-full flex justify-evenly hover:bg-white hover:text-black'
-                    onClick={() => setDeliver((prev) => !prev)}>Self-pickup</button>
+                    <button 
+                    disabled={cartItems.length === 0} 
+                    className='disabled:opacity-75 disabled:cursor-not-allowed mt-4 py-2 rounded-md border-white border w-full flex justify-evenly enabled:hover:bg-white enabled:hover:text-black'
+                    onClick={() => setDeliver((prev) => !prev)}>
+                        Self-pickup
+                    </button>
                 </div>
                 <div>
-                    <button className='mt-4 py-2 rounded-md border-white border w-full flex justify-evenly hover:bg-white hover:text-black'
-                    onClick={() => setDeliver((prev) => !prev)}>Delivery</button>
+                    <button 
+                    disabled={cartItems.length === 0} 
+                    className='disabled:opacity-75 disabled:cursor-not-allowed mt-4 py-2 rounded-md border-white border w-full flex justify-evenly enabled:hover:bg-white enabled:hover:text-black'
+                    onClick={() => setDeliver((prev) => !prev)}>
+                        Delivery
+                    </button>
                 </div>
             </div>
         </div>
