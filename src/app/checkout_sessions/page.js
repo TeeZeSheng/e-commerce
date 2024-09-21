@@ -27,7 +27,6 @@ export default function App() {
   }, []); 
 
   const options = {fetchClientSecret};
-  console.log(options)
 
   return (
     <div id="checkout" className='my-12'>

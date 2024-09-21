@@ -21,7 +21,6 @@ const Product = ({params}) => {
 
     useEffect(() => {
         axiosInstance.get('product').then((res) => {
-            console.log(res)
             setProducts(res.data.data.products)
             setFilterProducts(res.data.data.products)
             setLoading(false)
@@ -36,7 +35,6 @@ const Product = ({params}) => {
     const handleCategory = (cat) => {
         if (cat !== "All Products") {
             axiosInstance.get(`product?product_type=${cat}`).then((res) => {
-                console.log(res)
                 setFilterProducts(res.data.data.products)
                 setCatButton(false)
                 setLoading(false)
@@ -94,7 +92,7 @@ const Product = ({params}) => {
                 
             </div>
             </div>
-            {!loading ? 
+            {loading ? 
             <div className='lg:flex-row lg:flex-wrap z-10 lg:px-12 w-full items-center md:flex md:flex-col'>
                 { [1, 2, 3, 4, 5, 6].map((r, i) => (
                 <Stack spacing={2} className='mx-8 animate-pulse my-4' key={i}>
