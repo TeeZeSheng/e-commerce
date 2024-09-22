@@ -21,10 +21,10 @@ export default function Home() {
     <div className="px-6">
       <div className="flex justify-center items-center my-12">
         
-        <div className="flex lg:flex-row flex-col bg-gray-900">
+        <div className="flex lg:flex-row flex-col bg-gray-900 lg:w-full">
           
           
-          <Image src={homeKit} width={850} quality={100} className="basis-1/2"/>
+          <Image src={homeKit} width={750} quality={100} className="basis-1/2"/>
           <div className="flex flex-col justify-center w-full basis-1/2">
             <div className="flex flex-col items-center justify-center w-full py-4">
               <h1 className="basis-1/4">Spurs Jersey</h1>
